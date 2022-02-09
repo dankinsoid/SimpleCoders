@@ -353,6 +353,9 @@ fileprivate struct _KeyedDecodingContainer<Key: CodingKey, Unboxer: DecodingUnbo
 			if _unboxer.decodeNilOnFailure(key: key) {
 				return nil
 			} else {
+				if (try? decodeNil(forKey: key)) == true {
+					return nil
+				}
 				throw error
 			}
 		}
