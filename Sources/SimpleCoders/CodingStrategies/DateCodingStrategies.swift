@@ -37,21 +37,14 @@ public struct ISO8601CodingStrategy: DecodingStrategy, EncodingStrategy {
     }
 }
 
-public extension DecodingStrategy where Value == Date {
+public extension DecodingStrategy where Self == ISO8601CodingStrategy {
     
     static var iso8601: ISO8601CodingStrategy {
         ISO8601CodingStrategy()
     }
 }
 
-public extension EncodingStrategy where Value == Date {
-    
-    static var iso8601: ISO8601CodingStrategy {
-        ISO8601CodingStrategy()
-    }
-}
-
-public extension EncodingStrategy where Self: DecodingStrategy, Value == Date {
+public extension EncodingStrategy where Self == ISO8601CodingStrategy {
     
     static var iso8601: ISO8601CodingStrategy {
         ISO8601CodingStrategy()
@@ -74,21 +67,14 @@ public struct DefferedToDateCodingStrategy: DecodingStrategy, EncodingStrategy {
     }
 }
 
-public extension DecodingStrategy where Value == Date {
+public extension DecodingStrategy where Self == DefferedToDateCodingStrategy {
     
     static var defferedToDate: DefferedToDateCodingStrategy {
         DefferedToDateCodingStrategy()
     }
 }
 
-public extension EncodingStrategy where Value == Date {
-    
-    static var defferedToDate: DefferedToDateCodingStrategy {
-        DefferedToDateCodingStrategy()
-    }
-}
-
-public extension EncodingStrategy where Self: DecodingStrategy, Value == Date {
+public extension EncodingStrategy where Self == DefferedToDateCodingStrategy {
     
     static var defferedToDate: DefferedToDateCodingStrategy {
         DefferedToDateCodingStrategy()
@@ -111,21 +97,14 @@ public struct SecondsSince1970CodingStrategy: DecodingStrategy, EncodingStrategy
     }
 }
 
-public extension DecodingStrategy where Value == Date {
+public extension DecodingStrategy where Self == SecondsSince1970CodingStrategy {
     
     static var secondsSince1970: SecondsSince1970CodingStrategy {
         SecondsSince1970CodingStrategy()
     }
 }
 
-public extension EncodingStrategy where Value == Date {
-    
-    static var secondsSince1970: SecondsSince1970CodingStrategy {
-        SecondsSince1970CodingStrategy()
-    }
-}
-
-public extension EncodingStrategy where Self: DecodingStrategy, Value == Date {
+public extension EncodingStrategy where Self == SecondsSince1970CodingStrategy {
     
     static var secondsSince1970: SecondsSince1970CodingStrategy {
         SecondsSince1970CodingStrategy()
@@ -148,21 +127,14 @@ public struct MillisecondsSince1970CodingStrategy: DecodingStrategy, EncodingStr
     }
 }
 
-public extension DecodingStrategy where Value == Date {
+public extension DecodingStrategy where Self == MillisecondsSince1970CodingStrategy {
     
     static var millisecondsSince1970: MillisecondsSince1970CodingStrategy {
         MillisecondsSince1970CodingStrategy()
     }
 }
 
-public extension EncodingStrategy where Value == Date {
-    
-    static var millisecondsSince1970: MillisecondsSince1970CodingStrategy {
-        MillisecondsSince1970CodingStrategy()
-    }
-}
-
-public extension EncodingStrategy where Self: DecodingStrategy, Value == Date {
+public extension EncodingStrategy where Self == MillisecondsSince1970CodingStrategy {
     
     static var millisecondsSince1970: MillisecondsSince1970CodingStrategy {
         MillisecondsSince1970CodingStrategy()
@@ -198,21 +170,14 @@ public struct DateFormatterCodingStrategy: DecodingStrategy, EncodingStrategy {
     }
 }
 
-public extension DecodingStrategy where Value == Date {
+public extension DecodingStrategy where Self == DateFormatterCodingStrategy {
     
     static func formatter(_ formatter: DateFormatter) -> DateFormatterCodingStrategy {
         DateFormatterCodingStrategy(formatter)
     }
 }
 
-public extension EncodingStrategy where Value == Date {
-    
-    static func formatter(_ formatter: DateFormatter) -> DateFormatterCodingStrategy {
-        DateFormatterCodingStrategy(formatter)
-    }
-}
-
-public extension EncodingStrategy where Self: DecodingStrategy, Value == Date {
+public extension EncodingStrategy where Self == DateFormatterCodingStrategy {
     
     static func formatter(_ formatter: DateFormatter) -> DateFormatterCodingStrategy {
         DateFormatterCodingStrategy(formatter)
@@ -259,14 +224,14 @@ public struct StringFormatsDateCodingStrategy: DecodingStrategy, EncodingStrateg
     }
 }
 
-public extension DecodingStrategy where Value == Date {
+public extension DecodingStrategy where Self == StringFormatsDateCodingStrategy {
     
     static func dateFormats(_ firstFormat: String, _ otherFormats: String...) -> StringFormatsDateCodingStrategy {
         StringFormatsDateCodingStrategy(firstFormat, otherFormats)
     }
 }
 
-public extension EncodingStrategy where Value == Date {
+public extension EncodingStrategy where Self == StringFormatsDateCodingStrategy {
     
     static func dateFormat(_ format: String) -> StringFormatsDateCodingStrategy {
         StringFormatsDateCodingStrategy(format)

@@ -31,7 +31,7 @@ import PackageDescription
 let package = Package(
   name: "SomeProject",
   dependencies: [
-    .package(url: "https://github.com/dankinsoid/SimpleCoders.git", from: "1.3.0")
+    .package(url: "https://github.com/dankinsoid/SimpleCoders.git", from: "1.4.0")
     ],
   targets: [
     .target(name: "SomeProject", dependencies: ["SimpleCoders"])

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = 'SimpleCoders'
-s.version          = '1.3.0'
+s.version          = '1.4.0'
 s.summary          = 'A short description of SimpleCoders.'
 
 s.description      = <<-DESC

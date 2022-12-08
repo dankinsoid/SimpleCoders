@@ -41,21 +41,14 @@ public struct UseDeafultKeyCodingStrategy: KeyDecodingStrategy, KeyEncodingStrat
     }
 }
 
-public extension KeyDecodingStrategy {
+public extension KeyDecodingStrategy where Self == UseDeafultKeyCodingStrategy {
     
     static var useDefaultKeys: UseDeafultKeyCodingStrategy {
         UseDeafultKeyCodingStrategy()
     }
 }
 
-public extension KeyEncodingStrategy {
-    
-    static var useDefaultKeys: UseDeafultKeyCodingStrategy {
-        UseDeafultKeyCodingStrategy()
-    }
-}
-
-public extension KeyEncodingStrategy where Self: KeyDecodingStrategy {
+public extension KeyEncodingStrategy where Self == UseDeafultKeyCodingStrategy {
     
     static var useDefaultKeys: UseDeafultKeyCodingStrategy {
         UseDeafultKeyCodingStrategy()
@@ -153,14 +146,14 @@ public struct SnakeCasesCodingKeyStrategy: KeyDecodingStrategy, KeyEncodingStrat
     }
 }
 
-public extension KeyDecodingStrategy {
+public extension KeyDecodingStrategy where Self == SnakeCasesCodingKeyStrategy {
     
     static func convertFromSnakeCase(separators: CharacterSet = CharacterSet(charactersIn: "_")) -> SnakeCasesCodingKeyStrategy {
         SnakeCasesCodingKeyStrategy(decodeSeparators: separators, encodeSeparator: "_")
     }
 }
 
-public extension KeyEncodingStrategy {
+public extension KeyEncodingStrategy where Self == SnakeCasesCodingKeyStrategy {
     
     static func convertToSnakeCase(separator: String = "_") -> SnakeCasesCodingKeyStrategy {
         SnakeCasesCodingKeyStrategy(decodeSeparators: CharacterSet(charactersIn: separator), encodeSeparator: separator)
