@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = 'SimpleCoders'
-s.version          = '1.2.0'
+s.version          = '1.3.0'
 s.summary          = 'A short description of SimpleCoders.'
 
 s.description      = <<-DESC
@@ -14,7 +14,7 @@ s.author           = { 'voidilov' => 'voidilov@gmail.com' }
 s.source           = { :git => 'https://github.com/dankinsoid/SimpleCoders.git', :tag => s.version.to_s }
 
 s.ios.deployment_target = '10.0'
-s.swift_versions = '5.5'
+s.swift_versions = '5.7'
 s.source_files = 'Sources/SimpleCoders/**/*'
 
 end

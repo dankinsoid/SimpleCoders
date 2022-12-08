@@ -1,13 +1,7 @@
-//
-//  PlainCodingKey.swift
-//  VDCodable
-//
-//  Created by Daniil on 10.08.2019.
-//
-
 import Foundation
 
 public struct PlainCodingKey: CodingKey, ExpressibleByStringInterpolation, CustomStringConvertible {
+    
 	public var stringValue: String
 	public var intValue: Int?
 	
