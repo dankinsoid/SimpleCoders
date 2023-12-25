@@ -7,12 +7,14 @@
 
 import Foundation
 
-public protocol CodableDecoder {
+public protocol CodableDecoder<Input> {
+
     associatedtype Input
     func decode<T: Decodable>(_ type: T.Type, from data: Input) throws -> T
 }
 
-public protocol CodableEncoder {
+public protocol CodableEncoder<Output> {
+
     associatedtype Output
     func encode<T: Encodable>(_ value: T) throws -> Output
 }
