@@ -427,8 +427,8 @@ fileprivate struct _UnkeyedDecodingContaier<Unboxer: DecodingUnboxer>: UnkeyedDe
 		guard !isAtEnd else {
 			throw DecodingError.valueNotFound(Input?.self, DecodingError.Context(codingPath: codingPath + [PlainCodingKey(currentIndex)], debugDescription: "Unkeyed container is at end."))
 		}
+        defer { currentIndex += 1 }
 		if unboxer(input[currentIndex]).decodeNil() {
-			currentIndex += 1
 			return true
 		}
 		return false
@@ -438,6 +438,7 @@ fileprivate struct _UnkeyedDecodingContaier<Unboxer: DecodingUnboxer>: UnkeyedDe
 		guard !isAtEnd else {
 			throw DecodingError.valueNotFound(Bool.self, DecodingError.Context(codingPath: codingPath + [PlainCodingKey(currentIndex)], debugDescription: "Unkeyed container is at end."))
 		}
+        defer { currentIndex += 1 }
 		let result = try unboxer(input[currentIndex]).decode(type)
 		currentIndex += 1
 		return result
@@ -454,7 +455,6 @@ fileprivate struct _UnkeyedDecodingContaier<Unboxer: DecodingUnboxer>: UnkeyedDe
 			return try decode(type)
 		} catch {
 			if _unboxer.decodeNilOnFailure(key: PlainCodingKey(currentIndex)) {
-				currentIndex += 1
 				return nil
 			} else {
 				throw error
@@ -466,8 +466,8 @@ fileprivate struct _UnkeyedDecodingContaier<Unboxer: DecodingUnboxer>: UnkeyedDe
 		guard !isAtEnd else {
 			throw DecodingError.valueNotFound(String.self, DecodingError.Context(codingPath: codingPath + [PlainCodingKey(currentIndex)], debugDescription: "Unkeyed container is at end."))
 		}
+        defer { currentIndex += 1 }
 		let result = try unboxer(input[currentIndex]).decode(type)
-		currentIndex += 1
 		return result
 	}
 	
@@ -482,7 +482,6 @@ fileprivate struct _UnkeyedDecodingContaier<Unboxer: DecodingUnboxer>: UnkeyedDe
 			return try decode(type)
 		} catch {
 			if _unboxer.decodeNilOnFailure(key: PlainCodingKey(currentIndex)) {
-				currentIndex += 1
 				return nil
 			} else {
 				throw error
@@ -494,8 +493,8 @@ fileprivate struct _UnkeyedDecodingContaier<Unboxer: DecodingUnboxer>: UnkeyedDe
 		guard !isAtEnd else {
 			throw DecodingError.valueNotFound(Double.self, DecodingError.Context(codingPath: codingPath + [PlainCodingKey(currentIndex)], debugDescription: "Unkeyed container is at end."))
 		}
+        defer { currentIndex += 1 }
 		let result = try unboxer(input[currentIndex]).decode(type)
-		currentIndex += 1
 		return result
 	}
 	
@@ -510,7 +509,6 @@ fileprivate struct _UnkeyedDecodingContaier<Unboxer: DecodingUnboxer>: UnkeyedDe
 			return try decode(type)
 		} catch {
 			if _unboxer.decodeNilOnFailure(key: PlainCodingKey(currentIndex)) {
-				currentIndex += 1
 				return nil
 			} else {
 				throw error
@@ -522,8 +520,8 @@ fileprivate struct _UnkeyedDecodingContaier<Unboxer: DecodingUnboxer>: UnkeyedDe
 		guard !isAtEnd else {
 			throw DecodingError.valueNotFound(Float.self, DecodingError.Context(codingPath: codingPath + [PlainCodingKey(currentIndex)], debugDescription: "Unkeyed container is at end."))
 		}
+        defer { currentIndex += 1 }
 		let result = try unboxer(input[currentIndex]).decode(type)
-		currentIndex += 1
 		return result
 	}
 	
@@ -538,7 +536,6 @@ fileprivate struct _UnkeyedDecodingContaier<Unboxer: DecodingUnboxer>: UnkeyedDe
 			return try decode(type)
 		} catch {
 			if _unboxer.decodeNilOnFailure(key: PlainCodingKey(currentIndex)) {
-				currentIndex += 1
 				return nil
 			} else {
 				throw error
@@ -550,8 +547,8 @@ fileprivate struct _UnkeyedDecodingContaier<Unboxer: DecodingUnboxer>: UnkeyedDe
 		guard !isAtEnd else {
 			throw DecodingError.valueNotFound(Int.self, DecodingError.Context(codingPath: codingPath + [PlainCodingKey(currentIndex)], debugDescription: "Unkeyed container is at end."))
 		}
+        defer { currentIndex += 1 }
 		let result = try unboxer(input[currentIndex]).decode(type)
-		currentIndex += 1
 		return result
 	}
 	
@@ -566,7 +563,6 @@ fileprivate struct _UnkeyedDecodingContaier<Unboxer: DecodingUnboxer>: UnkeyedDe
 			return try decode(type)
 		} catch {
 			if _unboxer.decodeNilOnFailure(key: PlainCodingKey(currentIndex)) {
-				currentIndex += 1
 				return nil
 			} else {
 				throw error
@@ -578,8 +574,8 @@ fileprivate struct _UnkeyedDecodingContaier<Unboxer: DecodingUnboxer>: UnkeyedDe
 		guard !isAtEnd else {
 			throw DecodingError.valueNotFound(Int8.self, DecodingError.Context(codingPath: codingPath + [PlainCodingKey(currentIndex)], debugDescription: "Unkeyed container is at end."))
 		}
+        defer { currentIndex += 1 }
 		let result = try unboxer(input[currentIndex]).decode(type)
-		currentIndex += 1
 		return result
 	}
 	
@@ -594,7 +590,6 @@ fileprivate struct _UnkeyedDecodingContaier<Unboxer: DecodingUnboxer>: UnkeyedDe
 			return try decode(type)
 		} catch {
 			if _unboxer.decodeNilOnFailure(key: PlainCodingKey(currentIndex)) {
-				currentIndex += 1
 				return nil
 			} else {
 				throw error
@@ -606,8 +601,8 @@ fileprivate struct _UnkeyedDecodingContaier<Unboxer: DecodingUnboxer>: UnkeyedDe
 		guard !isAtEnd else {
 			throw DecodingError.valueNotFound(Int16.self, DecodingError.Context(codingPath: codingPath + [PlainCodingKey(currentIndex)], debugDescription: "Unkeyed container is at end."))
 		}
+        defer { currentIndex += 1 }
 		let result = try unboxer(input[currentIndex]).decode(type)
-		currentIndex += 1
 		return result
 	}
 	
@@ -622,7 +617,6 @@ fileprivate struct _UnkeyedDecodingContaier<Unboxer: DecodingUnboxer>: UnkeyedDe
 			return try decode(type)
 		} catch {
 			if _unboxer.decodeNilOnFailure(key: PlainCodingKey(currentIndex)) {
-				currentIndex += 1
 				return nil
 			} else {
 				throw error
@@ -634,8 +628,8 @@ fileprivate struct _UnkeyedDecodingContaier<Unboxer: DecodingUnboxer>: UnkeyedDe
 		guard !isAtEnd else {
 			throw DecodingError.valueNotFound(Int32.self, DecodingError.Context(codingPath: codingPath + [PlainCodingKey(currentIndex)], debugDescription: "Unkeyed container is at end."))
 		}
+        defer { currentIndex += 1 }
 		let result = try unboxer(input[currentIndex]).decode(type)
-		currentIndex += 1
 		return result
 	}
 	
@@ -650,7 +644,6 @@ fileprivate struct _UnkeyedDecodingContaier<Unboxer: DecodingUnboxer>: UnkeyedDe
 			return try decode(type)
 		} catch {
 			if _unboxer.decodeNilOnFailure(key: PlainCodingKey(currentIndex)) {
-				currentIndex += 1
 				return nil
 			} else {
 				throw error
@@ -662,8 +655,8 @@ fileprivate struct _UnkeyedDecodingContaier<Unboxer: DecodingUnboxer>: UnkeyedDe
 		guard !isAtEnd else {
 			throw DecodingError.valueNotFound(Int64.self, DecodingError.Context(codingPath: codingPath + [PlainCodingKey(currentIndex)], debugDescription: "Unkeyed container is at end."))
 		}
+        defer { currentIndex += 1 }
 		let result = try unboxer(input[currentIndex]).decode(type)
-		currentIndex += 1
 		return result
 	}
 	
@@ -678,7 +671,6 @@ fileprivate struct _UnkeyedDecodingContaier<Unboxer: DecodingUnboxer>: UnkeyedDe
 			return try decode(type)
 		} catch {
 			if _unboxer.decodeNilOnFailure(key: PlainCodingKey(currentIndex)) {
-				currentIndex += 1
 				return nil
 			} else {
 				throw error
@@ -690,8 +682,8 @@ fileprivate struct _UnkeyedDecodingContaier<Unboxer: DecodingUnboxer>: UnkeyedDe
 		guard !isAtEnd else {
 			throw DecodingError.valueNotFound(UInt.self, DecodingError.Context(codingPath: codingPath + [PlainCodingKey(currentIndex)], debugDescription: "Unkeyed container is at end."))
 		}
+        defer { currentIndex += 1 }
 		let result = try unboxer(input[currentIndex]).decode(type)
-		currentIndex += 1
 		return result
 	}
 	
@@ -706,7 +698,6 @@ fileprivate struct _UnkeyedDecodingContaier<Unboxer: DecodingUnboxer>: UnkeyedDe
 			return try decode(type)
 		} catch {
 			if _unboxer.decodeNilOnFailure(key: PlainCodingKey(currentIndex)) {
-				currentIndex += 1
 				return nil
 			} else {
 				throw error
